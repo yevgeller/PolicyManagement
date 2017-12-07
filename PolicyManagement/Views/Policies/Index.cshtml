@@ -1,0 +1,82 @@
+﻿@model IEnumerable<PolicyManagement.Models.Policy>
+
+@{
+    ViewBag.Title = "Current policies";
+}
+
+<h4>Current policies</h4>
+<hr />
+@foreach (var item in Model)
+{
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PolicyNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.PolicyNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EffectiveDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.EffectiveDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpirationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.ExpirationDate)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuredCustomer.CustomerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.InsuredCustomer.CustomerName)
+        </dd>
+        <!--Customer.Address-->
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuredCustomer.CustomerAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.InsuredCustomer.CustomerAddress.AddressLine1) <br />
+            @Html.DisplayFor(model => item.InsuredCustomer.CustomerAddress.City) @* *@
+            @Html.DisplayFor(model => item.InsuredCustomer.CustomerAddress.State) @* *@
+            @Html.DisplayFor(model => item.InsuredCustomer.CustomerAddress.Zip)
+        </dd>
+        <!--RiskEntity-->
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuredRiskEntity.RiskConstruction)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.InsuredRiskEntity.RiskConstruction)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuredRiskEntity.YearBuilt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.InsuredRiskEntity.YearBuilt)
+        </dd>
+        <!--RiskEntity.Address-->
+        <dt>
+            @Html.DisplayNameFor(model => model.InsuredRiskEntity.RiskAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => item.InsuredRiskEntity.RiskAddress.AddressLine1) <br />
+            @Html.DisplayFor(model => item.InsuredRiskEntity.RiskAddress.City) @* *@
+            @Html.DisplayFor(model => item.InsuredRiskEntity.RiskAddress.State) @* *@
+            @Html.DisplayFor(model => item.InsuredRiskEntity.RiskAddress.Zip)
+        </dd>
+    </dl>
+</div>
+    <hr />
+}
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model. }) |*@
+    @Html.ActionLink("Create new", "Create")
+</p>

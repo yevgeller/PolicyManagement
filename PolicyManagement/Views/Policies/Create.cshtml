@@ -1,0 +1,156 @@
+﻿@model PolicyManagement.Models.Policy
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new policy</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    <h3>General information</h3>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.PolicyNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.PolicyNumber, new { htmlAttributes = new { @class = "form-control", @Value = "blah" } })
+            @Html.ValidationMessageFor(model => model.PolicyNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EffectiveDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.EffectiveDate, new { htmlAttributes = new { @class = "form-control", type = "date"} })
+            @Html.ValidationMessageFor(model => model.EffectiveDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExpirationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ExpirationDate, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            @Html.ValidationMessageFor(model => model.ExpirationDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.FirstName, new { @Value = "Donna", htmlAttributes = new { @class = "form-control", @Value = "Donna" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.LastName, new { value = "Donovan", htmlAttributes = new { @class = "form-control", @Value = "Donovan" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <h3>Customer address</h3>
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control", @Value = "5 D Street" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.City, new { htmlAttributes = new { @class = "form-control", @Value = "Springfield" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.State, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.State, new { htmlAttributes = new { @class = "form-control", @Value = "DA" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.State, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.Zip, new { htmlAttributes = new { @class = "form-control", @Value = "55555" } })
+            @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.Zip, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <h3>Risk information</h3>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.RiskConstruction, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(model => model.InsuredRiskEntity.RiskConstruction, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskConstruction, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.YearBuilt, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredRiskEntity.YearBuilt, new { htmlAttributes = new { @class = "form-control", @Value="1950" } })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.YearBuilt, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <h3>Risk address</h3>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control", @Value = "123 Risk street" } })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.City, new { htmlAttributes = new { @class = "form-control", @Value = "Springfield" } })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.State, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.State, new { htmlAttributes = new { @class = "form-control", @Value = "DC" } })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.State, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.Zip, new { htmlAttributes = new { @class = "form-control", @Value = "55555" } })
+            @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.Zip, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
