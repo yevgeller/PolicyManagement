@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PolicyManagement.Models
 {
-    public class Policy
+    public class Policy : IValidatableObject
     {
         public int Id { get; set; } //PolicyNumber will most likely be unique, but I'm playing it safe because I don't have anyone to ask about the business rules
 
@@ -24,5 +25,13 @@ namespace PolicyManagement.Models
 
         [Required(AllowEmptyStrings = false)]
         public RiskEntity InsuredRiskEntity { get; set; }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if(EffectiveDate > ExpirationDate)
+            {
+                yield return new ValidationResult("Policy Effective Date must be before the End Date.");
+            }
+        }
     }
 }
