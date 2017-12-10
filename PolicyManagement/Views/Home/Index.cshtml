@@ -15,11 +15,13 @@
         <p>
             As an RPS user, I need the ability to create new insurance policies.
         </p>
-        <p><a class="btn btn-default" href="/Policies/Create">Try it</a></p>
+        @Html.ActionLink("Try it", "Create", "Policies",null, new { @class = "btn btn-default" })
+        <p>@*<a class="btn btn-default" href="/Policies/Create">Try it</a>*@</p>
     </div>
     <div class="col-md-4">
         <h2>Test story 2</h2>
         <p>As an RPS user, I would like to view a list of insurance policies.</p>
-        <p><a class="btn btn-default" href="/Policies">Try it</a></p>
+        @Html.ActionLink("Try it", "Index", "Policies", null, new { @class="btn btn-default"})
+        @*<p><a class="btn btn-default" href="/Policies">Try it</a></p>*@
     </div>
 </div>

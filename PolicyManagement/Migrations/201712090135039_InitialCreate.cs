@@ -12,10 +12,10 @@ namespace PolicyManagement.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        AddressLine1 = c.String(),
-                        City = c.String(),
-                        State = c.String(),
-                        Zip = c.String(),
+                        AddressLine1 = c.String(nullable: false),
+                        City = c.String(nullable: false),
+                        State = c.String(nullable: false),
+                        Zip = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -37,15 +37,15 @@ namespace PolicyManagement.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        PolicyNumber = c.String(),
+                        PolicyNumber = c.String(nullable: false),
                         EffectiveDate = c.DateTime(nullable: false),
                         ExpirationDate = c.DateTime(nullable: false),
-                        InsuredCustomer_Id = c.Int(),
-                        InsuredRiskEntity_Id = c.Int(),
+                        InsuredCustomer_Id = c.Int(nullable: false),
+                        InsuredRiskEntity_Id = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Customers", t => t.InsuredCustomer_Id)
-                .ForeignKey("dbo.RiskEntities", t => t.InsuredRiskEntity_Id)
+                .ForeignKey("dbo.Customers", t => t.InsuredCustomer_Id, cascadeDelete: true)
+                .ForeignKey("dbo.RiskEntities", t => t.InsuredRiskEntity_Id, cascadeDelete: true)
                 .Index(t => t.InsuredCustomer_Id)
                 .Index(t => t.InsuredRiskEntity_Id);
             

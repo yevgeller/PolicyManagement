@@ -1,22 +1,20 @@
-namespace PolicyManagement.Migrations
+﻿using PolicyManagement.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PolicyManagement.Tests
 {
-    using PolicyManagement.Models;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<PolicyManagement.Models.PolicyManagementDb>
+    public class TestData
     {
-        public Configuration()
+        public static IQueryable<Policy> Policies
         {
-            AutomaticMigrationsEnabled = false;
-        }
-
-        protected override void Seed(PolicyManagement.Models.PolicyManagementDb context)
-        {
-            context.Policies.AddOrUpdate(p => p.PolicyNumber, //Here I'm treating the PolicyNumber field as the primary key even though there is a unique Id in the tables
-                new Policy
+            get
+            {
+                List<Policy> policies = new List<Policy>();
+                policies.Add(new Policy
                 {
                     PolicyNumber = "A123",
                     EffectiveDate = new DateTime(2017, 1, 1, 0, 0, 1),
@@ -45,7 +43,9 @@ namespace PolicyManagement.Migrations
                             Zip = "12345"
                         }
                     }
-                }, new Policy
+                });
+
+                policies.Add(new Policy
                 {
                     PolicyNumber = "B234",
                     EffectiveDate = new DateTime(2017, 6, 1, 0, 0, 1),
@@ -74,7 +74,9 @@ namespace PolicyManagement.Migrations
                             Zip = "23451"
                         }
                     }
-                }, new Policy
+                });
+
+                policies.Add(new Policy
                 {
                     PolicyNumber = "C345",
                     EffectiveDate = new DateTime(2017, 9, 1, 0, 0, 1),
@@ -105,24 +107,8 @@ namespace PolicyManagement.Migrations
                     }
                 });
 
-
-
-
-
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+                return policies.AsQueryable();
+            }
         }
-
-        
     }
 }

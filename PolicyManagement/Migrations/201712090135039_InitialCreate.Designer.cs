@@ -13,7 +13,7 @@ namespace PolicyManagement.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201712062234332_InitialCreate"; }
+            get { return "201712090135039_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

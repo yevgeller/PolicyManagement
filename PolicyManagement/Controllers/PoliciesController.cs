@@ -12,27 +12,46 @@ namespace PolicyManagement.Controllers
 {
     public class PoliciesController : Controller
     {
-        private PolicyManagementDb db = new PolicyManagementDb();
+        IPolicyManagementDb db;
+
+        public PoliciesController()
+        {
+            db = new PolicyManagementDb();
+        }
+
+        public PoliciesController(IPolicyManagementDb _db)
+        {
+            db = _db;
+        }
 
         // GET: Policies
         public ActionResult Index()
         {
-            List<Policy> results = db.Policies
-                                        .Include(x=>x.InsuredCustomer)
-                                        .Include(x=>x.InsuredCustomer.CustomerAddress)
-                                        .Include(x=>x.InsuredRiskEntity)
-                                        .Include(x=>x.InsuredRiskEntity.RiskAddress).ToList();
+            List<Policy> results = db.Query<Policy>()
+                                    .Include(x => x.InsuredCustomer)
+                                    .Include(x => x.InsuredCustomer.CustomerAddress)
+                                    .Include(x => x.InsuredRiskEntity)
+                                    .Include(x => x.InsuredRiskEntity.RiskAddress).ToList();
 
             return View(results);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Policy policy)//([Bind(Include = "Id,PolicyNumber,EffectiveDate,ExpirationDate")] Policy policy)
+        public ActionResult Create(Policy policy)
         {
+            Policy p = db.Query<Policy>().ToList()
+                .Where(x => x.PolicyNumber.Trim().ToLower() == policy.PolicyNumber.Trim().ToLower())
+                .FirstOrDefault();
+
+            if(p!=null)
+            {
+                ModelState.AddModelError("PolicyNumber", "There is already a policy with such identifier.");
+            }
+
             if (ModelState.IsValid)
             {
-                db.Policies.Add(policy);
+                db.Add(policy);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -45,21 +64,5 @@ namespace PolicyManagement.Controllers
         {
             return View();
         }
-        //// GET: Policies/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Policy policy = db.Policies.Find(id);
-        //    if (policy == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(policy);
-        //}
-
-
     }
 }

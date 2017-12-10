@@ -206,9 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712062234332_InitialCreate.cs" />
-    <Compile Include="Migrations\201712062234332_InitialCreate.Designer.cs">
-      <DependentUpon>201712062234332_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201712090135039_InitialCreate.cs" />
+    <Compile Include="Migrations\201712090135039_InitialCreate.Designer.cs">
+      <DependentUpon>201712090135039_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -235,8 +235,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
-    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\PolicyMgmt - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\PolicyMgmt - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -303,8 +301,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712062234332_InitialCreate.resx">
-      <DependentUpon>201712062234332_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712090135039_InitialCreate.resx">
+      <DependentUpon>201712090135039_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -321,7 +319,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>64007</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
