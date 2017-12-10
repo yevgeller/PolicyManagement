@@ -18,7 +18,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.PolicyNumber, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.PolicyNumber, new { htmlAttributes = new { @class = "form-control", @Value = "blah" } })
+            @Html.EditorFor(model => model.PolicyNumber, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.PolicyNumber, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -42,7 +42,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.FirstName, new { @Value = "Donna", htmlAttributes = new { @class = "form-control", @Value = "Donna" } })
+            @Html.EditorFor(model => model.InsuredCustomer.FirstName, new { @Value = "Donna", htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.FirstName, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.LastName, new { value = "Donovan", htmlAttributes = new { @class = "form-control", @Value = "Donovan" } })
+            @Html.EditorFor(model => model.InsuredCustomer.LastName, new { value = "Donovan", htmlAttributes = new { @class = "form-control"} })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.LastName, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control", @Value = "5 D Street" } })
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.AddressLine1, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -66,7 +66,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.City, new { htmlAttributes = new { @class = "form-control", @Value = "Springfield" } })
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.City, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.City, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -74,7 +74,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.State, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.State, new { htmlAttributes = new { @class = "form-control", @Value = "DA" } })
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.State, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.State, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -82,7 +82,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredCustomer.CustomerAddress.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.Zip, new { htmlAttributes = new { @class = "form-control", @Value = "55555" } })
+            @Html.EditorFor(model => model.InsuredCustomer.CustomerAddress.Zip, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredCustomer.CustomerAddress.Zip, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -100,7 +100,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredRiskEntity.YearBuilt, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredRiskEntity.YearBuilt, new { htmlAttributes = new { @class = "form-control", @Value="1950" } })
+            @Html.EditorFor(model => model.InsuredRiskEntity.YearBuilt, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredRiskEntity.YearBuilt, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -110,7 +110,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control", @Value = "123 Risk street" } })
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.AddressLine1, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -118,7 +118,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.City, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.City, new { htmlAttributes = new { @class = "form-control", @Value = "Springfield" } })
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.City, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.City, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -126,7 +126,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.State, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.State, new { htmlAttributes = new { @class = "form-control", @Value = "DC" } })
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.State, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.State, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -134,7 +134,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.InsuredRiskEntity.RiskAddress.Zip, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.Zip, new { htmlAttributes = new { @class = "form-control", @Value = "55555" } })
+            @Html.EditorFor(model => model.InsuredRiskEntity.RiskAddress.Zip, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.InsuredRiskEntity.RiskAddress.Zip, "", new { @class = "text-danger" })
         </div>
     </div>
