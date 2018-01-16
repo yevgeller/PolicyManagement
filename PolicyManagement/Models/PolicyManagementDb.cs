@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
 
 namespace PolicyManagement.Models
 {
@@ -42,7 +39,7 @@ namespace PolicyManagement.Models
 
         public void Update<T>(T entity) where T : class
         {
-            Entry(entity).State = System.Data.Entity.EntityState.Modified;
+            Entry(entity).State = EntityState.Modified;
         }
 
         void IPolicyManagementDb.SaveChanges()

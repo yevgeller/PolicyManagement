@@ -219,6 +219,8 @@
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Models\PolicyManagementDb.cs" />
     <Compile Include="Models\RiskEntity.cs" />
+    <Compile Include="Persistence\PolicyRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
